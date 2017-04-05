@@ -29,6 +29,7 @@
     "vinyl-changes-stream": "^0.1.0"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.12",
     "mocha": "^3.2.0"
   },
   "keywords": [
@@ -44,5 +45,18 @@
     "search",
     "search-indexer",
     "stream"
-  ]
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
 }
