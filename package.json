@@ -57,6 +57,14 @@
     ],
     "lint": {
       "reflinks": true
+    },
+    "related": {
+      "list": [
+        "base-search",
+        "sarge",
+        "search-indexer-algolia",
+        "vinyl-changes-stream"
+      ]
     }
   }
 }
