@@ -10,8 +10,7 @@
   },
   "license": "MIT",
   "files": [
-    "index.js",
-    "LICENSE"
+    "index.js"
   ],
   "main": "index.js",
   "engines": {
@@ -20,10 +19,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [
-    "indexer",
-    "npm"
-  ],
   "dependencies": {
     "extend-shallow": "^2.0.1",
     "koalas": "^1.0.1",
@@ -35,5 +30,19 @@
   },
   "devDependencies": {
     "mocha": "^3.2.0"
-  }
+  },
+  "keywords": [
+    "algolia",
+    "changes",
+    "changes-stream",
+    "indexer",
+    "npm",
+    "npm-indexer",
+    "npm-search",
+    "npm-search-indexer",
+    "sarge",
+    "search",
+    "search-indexer",
+    "stream"
+  ]
 }
