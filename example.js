@@ -10,7 +10,7 @@ var indexer = {
     pkg.objectID = file.key;
     delete pkg.versions;
 
-    console.log('collect', pkg);
+    console.log('collect', pkg.name);
     next(null, pkg);
   },
   index: function(files, options, cb) {
@@ -23,12 +23,12 @@ var options = {
   indexer: indexer,
   since: 1283832,
   limit: 20,
-  keywords: ['lint']
+  keywords: ['chrome']
 };
 
 npm(options)
   .on('data', function(file) {
-    console.log('npm file', file);
+    // console.log('npm file', file);
   })
   .on('end', function() {
     console.log('npm end');

@@ -9,6 +9,7 @@ var Sarge = require('sarge');
 var File = require('vinyl');
 
 var defaults = {
+  includeName: false,
   db: 'https://skimdb.npmjs.com/registry'
 };
 
@@ -20,10 +21,8 @@ module.exports = function(config) {
   }
 
   var sarge = new Sarge({
-    clear: true,
-    indexers: {
-      default: indexer
-    }
+    indexers: {default: indexer},
+    clear: true
   });
 
   var keywords = arrayify(config.keywords);
@@ -43,7 +42,9 @@ module.exports = function(config) {
   return changes(config)
     .on('error', console.error)
     .pipe(through.obj(function(file, enc, next) {
-      var haystack = [file.id].concat(arrayify(file.json.doc.keywords));
+      var haystack = arrayify(config.includeName ? file.id : null)
+        .concat(arrayify(file.json.doc.keywords));
+
       var searches = haystack.map(function(str) {
         return isMatch(str);
       });
@@ -72,6 +73,7 @@ function arrayify(val) {
 
 function toPackage(file) {
   var pkg = new File({
+    seq: file.seq,
     key: file.id,
     base: file.base,
     path: file.path,
